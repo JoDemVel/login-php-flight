@@ -1,0 +1,10 @@
+FROM postgres:latest
+
+ENV POSTGRES_PASSWORD postgres
+ENV POSTGRES_USER jodemvel
+ENV POSTGRES_DB postgres
+
+COPY database.sql /docker-entrypoint-initdb.d/
+
+RUN chmod +r /docker-entrypoint-initdb.d/database.sql
+
